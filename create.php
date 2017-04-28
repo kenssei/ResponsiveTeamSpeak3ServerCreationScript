@@ -140,9 +140,14 @@ if(isset($_POST['sunucuOlustur'])){
 			$genel->mesaj('An error occurred, please try again later!', 2, 4);
 			//DEBUG MESAJ   echo 'An error occurred: '.$sonuc['errors'][0];
 		}else{
+			if($lokasyon == 'fransa'){
+				$sonucIP == $fransa['ip'];
+			}elseif($lokasyon == 'almanya'){
+				$sonucIP == $almanya['ip'];
+			}
 			$genel->mesaj('Server successfully created!', 1, 4);
-			echo '<meta http-equiv="refresh" content="0; url=ts3server://'.$sonuc['data']['virtualserver_ip'].':'.$sonuc['data']['virtualserver_port'].'?token='.$sonuc['data']['token'].'" />';
-			setcookie('ip', $sonuc['data']['virtualserver_ip']);
+			echo '<meta http-equiv="refresh" content="0; url=ts3server://'.$sonucIP.':'.$sonuc['data']['virtualserver_port'].'?token='.$sonuc['data']['token'].'" />';
+			setcookie('ip', $sonucIP);
 			setcookie('port', $sonuc['data']['virtualserver_port']);
 		}
 	}
