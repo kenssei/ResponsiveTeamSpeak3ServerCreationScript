@@ -140,9 +140,9 @@ if(isset($_POST['sunucuOlustur'])){
 			$genel->mesaj('An error occurred, please try again later!', 2, 4);
 			//DEBUG MESAJ   echo 'An error occurred: '.$sonuc['errors'][0];
 		}else{
-			if($lokasyon == 'fransa'){
+			if($_POST['lokasyon'] == 'fransa'){
 				$sonucIP == $fransa['ip'];
-			}elseif($lokasyon == 'almanya'){
+			}elseif($_POST['lokasyon'] == 'almanya'){
 				$sonucIP == $almanya['ip'];
 			}
 			$genel->mesaj('Server successfully created!', 1, 4);
